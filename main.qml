@@ -4,15 +4,27 @@ import QtQuick.Window 2.2
 Window {
     id: root
     visible: true
-    width: 400; height: 400
+    width: 500; height: 500
+    flags: Qt.FramelessWindowHint
+
+    FunnyExitBtn {
+        id: closeBtn
+        text: "X"
+        width: 50; height: 50
+        x: 425; y: 25
+
+        onClicked: root.close()
+
+    }
+
+
 
     Grid{
-
+        width: 300; height: 300
         id: grid
-        anchors.fill: parent
-        anchors.margins: 50
+        anchors.centerIn: parent
+        anchors.margins: 0
         columns: 3
-        spacing: 3
 
         Rectangle{
             property int currentRow: 0
@@ -60,4 +72,14 @@ Window {
         }
     }
 
+    Grid{
+        width: 300; height: 100
+        x:50; y: 425
+        columns: 3
+        spacing: 50
+        anchors.margins: 50
+        FunnyBtn {id: newGame; text:"New"}
+        FunnyBtn {id: saveGame; text:"Save"}
+        FunnyBtn {id: loadGame; text:"Load"}
+    }
 }

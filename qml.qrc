@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Button.qml</file>
+        <file>FunnyBtn.qml</file>
+        <file>FunnyExitBtn.qml</file>
     </qresource>
 </RCC>

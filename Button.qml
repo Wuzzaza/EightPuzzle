@@ -19,14 +19,6 @@ Item {
         smooth: true; radius: 5
         border.color: "#ffffff"
 
-        MouseArea{
-            anchors.fill: parent
-            onClicked: {
-                root.clicked()
-            }
-        }
-
-
         Text {
             id: label
 
@@ -37,6 +29,13 @@ Item {
             font.family: "Arial Black"
             styleColor: "#000000"
             font.pointSize: 48
+        }
+
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                root.clicked()
+            }
         }
     }
 
