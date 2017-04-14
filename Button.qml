@@ -5,8 +5,8 @@ Item {
     width: 100; height: 100;
     property alias text: label.text
     property alias color: rect.color
-    property int currentRow
-    property int currentColumn
+    property var currentRow: 0
+    property var currentColumn: 0
     signal clicked
 
     Behavior on x {NumberAnimation {duration: 200; easing.type: Easing.InOutCubic}}

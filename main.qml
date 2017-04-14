@@ -28,7 +28,7 @@ Window {
         spacing: 50
         anchors.margins: 50
         FunnyBtn {id: newGame; text:"New"; onClicked: {gameField.newGame()}}
-        FunnyBtn {id: saveGame; text:"Save"}
-        FunnyBtn {id: loadGame; text:"Load"}
+        FunnyBtn {id: saveGame; text:"Save"; onClicked: {gameField.saveGame()}}
+        FunnyBtn {id: loadGame; text:"Load";onClicked: {gameField.loadGame()}}
     }
 }
