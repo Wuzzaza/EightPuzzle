@@ -4,5 +4,6 @@
         <file>Button.qml</file>
         <file>FunnyBtn.qml</file>
         <file>FunnyExitBtn.qml</file>
+        <file>GameField.qml</file>
     </qresource>
 </RCC>
