@@ -104,9 +104,14 @@ Item {
                                     color: gameBtns.itemAt(i).color});
             console.log(root.saveGameData[i + 1].str);
         }
+
+        gameSaver.saveGame();
     }
 
     function loadGame(){
+
+        gameSaver.loadGame();
+
 
         emptySpace.x = root.saveGameData[0].x;
         emptySpace.y = root.saveGameData[0].y;

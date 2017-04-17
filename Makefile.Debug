@@ -43,11 +43,20 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = main.cpp debug\qrc_qml.cpp
+SOURCES       = main.cpp \
+		gamesaver.cpp \
+		filemethods.cpp debug\qrc_qml.cpp \
+		debug\moc_gamesaver.cpp
 OBJECTS       = debug\main.obj \
-		debug\qrc_qml.obj
+		debug\gamesaver.obj \
+		debug\filemethods.obj \
+		debug\qrc_qml.obj \
+		debug\moc_gamesaver.obj
 
-DIST          =   main.cpp
+DIST          =  gamesaver.h \
+		filemethods.h main.cpp \
+		gamesaver.cpp \
+		filemethods.cpp
 QMAKE_TARGET  = QMLTest
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = QMLTest.exe
@@ -116,7 +125,7 @@ dist:
 	$(ZIP) QMLTest.zip $(SOURCES) $(DIST) QMLTest.pro ..\..\QT\5.6\msvc2015_64\mkspecs\features\spec_pre.prf ..\..\QT\5.6\msvc2015_64\mkspecs\common\angle.conf ..\..\QT\5.6\msvc2015_64\mkspecs\common\msvc-base.conf ..\..\QT\5.6\msvc2015_64\mkspecs\common\msvc-desktop.conf ..\..\QT\5.6\msvc2015_64\mkspecs\qconfig.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3drender.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_3drender_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_axbase.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_axserver.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_clucene_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_core.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_core_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_dbus.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_designer.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_gui.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_help.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_help_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_labscontrols_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_labstemplates_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_location.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_location_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_network.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_network_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_nfc.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_opengl.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_positioning.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_qml.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_quick.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_script.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_script_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_scripttools.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_serialbus.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_serialport.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_sql.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_svg.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_testlib.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_uitools.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webengine.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webengine_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webenginecore.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webenginecore_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webenginewidgets.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_websockets.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webview.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_webview_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_widgets.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_winextras.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_xml.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\QT\5.6\msvc2015_64\mkspecs\features\qt_functions.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\qt_config.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\win32\qt_config.prf ..\..\QT\5.6\msvc2015_64\mkspecs\win32-msvc2015\qmake.conf ..\..\QT\5.6\msvc2015_64\mkspecs\features\spec_post.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\exclusive_builds.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\default_pre.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\win32\default_pre.prf deployment.pri ..\..\QT\5.6\msvc2015_64\mkspecs\features\resolve_config.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\exclusive_builds_post.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\default_post.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\build_pass.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\qml_debug.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\win32\rtti.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\precompile_header.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\warn_on.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\qt.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\resources.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\moc.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\win32\opengl.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\win32\windows.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\testcase_targets.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\exceptions.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\yacc.prf ..\..\QT\5.6\msvc2015_64\mkspecs\features\lex.prf QMLTest.pro qml.qrc ..\..\QT\5.6\msvc2015_64\lib\qtmaind.prl ..\..\QT\5.6\msvc2015_64\lib\Qt5Quickd.prl ..\..\QT\5.6\msvc2015_64\lib\Qt5Guid.prl ..\..\QT\5.6\msvc2015_64\lib\Qt5Qmld.prl ..\..\QT\5.6\msvc2015_64\lib\Qt5Networkd.prl ..\..\QT\5.6\msvc2015_64\lib\Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.obj debug\qrc_qml.obj
+	-$(DEL_FILE) debug\main.obj debug\gamesaver.obj debug\filemethods.obj debug\qrc_qml.obj debug\moc_gamesaver.obj
 	-$(DEL_FILE) debug\QMLTest.exp debug\QMLTest.ilk debug\QMLTest.idb
 
 distclean: clean 
@@ -143,8 +152,86 @@ debug\qrc_qml.cpp: qml.qrc \
 		FunnyExitBtn.qml
 	E:\QT\5.6\msvc2015_64\bin\rcc.exe -name qml qml.qrc -o debug\qrc_qml.cpp
 
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: debug\moc_gamesaver.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) debug\moc_gamesaver.cpp
+debug\moc_gamesaver.cpp: ..\..\QT\5.6\msvc2015_64\include\QtCore\QObject \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobject.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobjectdefs.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qnamespace.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qglobal.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qconfig.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfeatures.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qsystemdetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qprocessordetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcompilerdetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qtypeinfo.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qtypetraits.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qisenum.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qsysinfo.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qlogging.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qflags.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbasicatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qgenericatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_cxx11.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_gcc.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_msvc.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv7.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv6.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv5.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_ia64.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_x86.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_unix.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qglobalstatic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qmutex.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qnumeric.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qversiontagging.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobjectdefs_impl.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstring.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qchar.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbytearray.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qrefcount.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qarraydata.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringbuilder.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qlist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qalgorithms.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qiterator.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qhashfunctions.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qpair.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbytearraylist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringlist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qregexp.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringmatcher.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcoreevent.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qscopedpointer.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qmetatype.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qvarlengtharray.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcontainerfwd.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobject_impl.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QDebug \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qdebug.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qhash.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qmap.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qtextstream.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qiodevice.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qlocale.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qvariant.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qshareddata.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qvector.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qpoint.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qset.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcontiguouscache.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QVariantMap \
+		filemethods.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QString \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QFile \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfile.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfiledevice.h \
+		gamesaver.h
+	E:\QT\5.6\msvc2015_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1900 -D_WIN32 -D_WIN64 -IE:/QT/5.6/msvc2015_64/mkspecs/win32-msvc2015 -IE:/GIT/EightPuzzle -IE:/QT/5.6/msvc2015_64/include -IE:/QT/5.6/msvc2015_64/include/QtQuick -IE:/QT/5.6/msvc2015_64/include/QtGui -IE:/QT/5.6/msvc2015_64/include/QtANGLE -IE:/QT/5.6/msvc2015_64/include/QtQml -IE:/QT/5.6/msvc2015_64/include/QtNetwork -IE:/QT/5.6/msvc2015_64/include/QtCore gamesaver.h -o debug\moc_gamesaver.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_yacc_decl_make_all:
@@ -153,7 +240,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_rcc_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean 
 
 
 
@@ -244,9 +331,159 @@ debug\main.obj: main.cpp ..\..\QT\5.6\msvc2015_64\include\QtGui\QGuiApplication 
 		..\..\QT\5.6\msvc2015_64\include\QtQml\qjsvalue.h \
 		..\..\QT\5.6\msvc2015_64\include\QtQml\qtqmlglobal.h \
 		..\..\QT\5.6\msvc2015_64\include\QtQml\qqmlerror.h \
-		..\..\QT\5.6\msvc2015_64\include\QtQml\qqmldebug.h
+		..\..\QT\5.6\msvc2015_64\include\QtQml\qqmldebug.h \
+		..\..\QT\5.6\msvc2015_64\include\QtQml\QQmlContext \
+		..\..\QT\5.6\msvc2015_64\include\QtQml\qqmlcontext.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QObject \
+		gamesaver.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QDebug \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QVariantMap \
+		filemethods.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QString \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QFile \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfile.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfiledevice.h
+
+debug\gamesaver.obj: gamesaver.cpp gamesaver.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QObject \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobject.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobjectdefs.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qnamespace.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qglobal.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qconfig.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfeatures.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qsystemdetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qprocessordetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcompilerdetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qtypeinfo.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qtypetraits.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qisenum.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qsysinfo.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qlogging.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qflags.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbasicatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qgenericatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_cxx11.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_gcc.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_msvc.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv7.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv6.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv5.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_ia64.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_x86.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_unix.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qglobalstatic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qmutex.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qnumeric.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qversiontagging.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobjectdefs_impl.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstring.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qchar.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbytearray.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qrefcount.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qarraydata.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringbuilder.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qlist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qalgorithms.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qiterator.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qhashfunctions.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qpair.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbytearraylist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringlist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qregexp.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringmatcher.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcoreevent.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qscopedpointer.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qmetatype.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qvarlengtharray.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcontainerfwd.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobject_impl.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QDebug \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qdebug.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qhash.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qmap.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qtextstream.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qiodevice.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qlocale.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qvariant.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qshareddata.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qvector.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qpoint.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qset.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcontiguouscache.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QVariantMap \
+		filemethods.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QString \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QFile \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfile.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfiledevice.h
+
+debug\filemethods.obj: filemethods.cpp filemethods.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QString \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstring.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qchar.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qglobal.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qconfig.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfeatures.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qsystemdetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qprocessordetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcompilerdetection.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qtypeinfo.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qtypetraits.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qisenum.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qsysinfo.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qlogging.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qflags.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbasicatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qgenericatomic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_cxx11.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_gcc.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_msvc.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv7.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv6.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_armv5.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_ia64.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_x86.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qatomic_unix.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qglobalstatic.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qmutex.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qnumeric.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qversiontagging.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbytearray.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qrefcount.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qnamespace.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qarraydata.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringbuilder.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\QFile \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfile.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qfiledevice.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qiodevice.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobject.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobjectdefs.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobjectdefs_impl.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qlist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qalgorithms.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qiterator.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qhashfunctions.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qpair.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qbytearraylist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringlist.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qregexp.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qstringmatcher.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcoreevent.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qscopedpointer.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qmetatype.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qvarlengtharray.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qcontainerfwd.h \
+		..\..\QT\5.6\msvc2015_64\include\QtCore\qobject_impl.h
 
 debug\qrc_qml.obj: debug\qrc_qml.cpp 
+
+debug\moc_gamesaver.obj: debug\moc_gamesaver.cpp 
 
 ####### Install
 
