@@ -16,15 +16,13 @@ class GameSaver: public QObject
 public:
     GameSaver();
 
-    Q_INVOKABLE void saveGame();
-    Q_INVOKABLE void loadGame();
+    Q_INVOKABLE void saveGame(QVariantList saveGameData);
+    Q_INVOKABLE QVariantList loadGame();
 
-    void initGameField(QObject *gameField);
 
 private:
     FileMethods fileMetods;
-    QObject *gameField = nullptr;
-    QVariantMap saveGameData;
+    QVariantList saveGameData;
 
 };
 

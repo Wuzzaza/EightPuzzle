@@ -4,8 +4,6 @@ import QtQuick 2.0
 
 Item {
     id: root
-    property var saveGameData: []
-
 
     Grid{
 
@@ -89,47 +87,46 @@ Item {
     }
 
     function saveGame(){
-        root.saveGameData = [];
-        root.saveGameData.push({x: emptySpace.x,
-                                y: emptySpace.y,
-                                currentRow: emptySpace.currentRow,
-                                currentColumn: emptySpace.currentColumn});
+        var arr = [];
+        arr.push(emptySpace.x);
+        arr.push(emptySpace.y);
+        arr.push(emptySpace.currentRow);
+        arr.push(emptySpace.currentColumn);
+
 
         for (var i = 0; i < 8; i++){
-            root.saveGameData.push({x: gameBtns.itemAt(i).x,
-                                    y: gameBtns.itemAt(i).y,
-                                    currentRow: gameBtns.itemAt(i).currentRow,
-                                    currentColumn: gameBtns.itemAt(i).currentColumn,
-                                    str: gameBtns.itemAt(i).text,
-                                    color: gameBtns.itemAt(i).color});
-            console.log(root.saveGameData[i + 1].str);
+            arr.push(gameBtns.itemAt(i).x);
+            arr.push(gameBtns.itemAt(i).y);
+            arr.push(gameBtns.itemAt(i).currentRow);
+            arr.push(gameBtns.itemAt(i).currentColumn);
+            arr.push(gameBtns.itemAt(i).text);
         }
 
-        gameSaver.saveGame();
+        gameSaver.saveGame(arr);
     }
 
     function loadGame(){
 
-        gameSaver.loadGame();
+        var arr = gameSaver.loadGame();
 
 
-        emptySpace.x = root.saveGameData[0].x;
-        emptySpace.y = root.saveGameData[0].y;
 
-        emptySpace.currentRow = root.saveGameData[0].currentRow;
-        emptySpace.currentColumn = root.saveGameData[0].currentColumn;
+          emptySpace.x = arr.shift();
+          emptySpace.y = arr.shift();
+
+          emptySpace.currentRow = arr.shift();
+          emptySpace.currentColumn = arr.shift();
 
 
-        for (var i = 0; i < 8; i++){
+          for (var i = 0; i < 8; i++){
 
-            gameBtns.itemAt(i).x = root.saveGameData[1 + i].x;
-            gameBtns.itemAt(i).y = root.saveGameData[1 + i].y;
+              gameBtns.itemAt(i).x = arr.shift();;
+              gameBtns.itemAt(i).y = arr.shift();
 
-            gameBtns.itemAt(i).currentRow = root.saveGameData[1 + i].currentRow;
-            gameBtns.itemAt(i).currentColumn = root.saveGameData[1 + i].currentColumn;
-            gameBtns.itemAt(i).text = root.saveGameData[1 + i].str;
-            gameBtns.itemAt(i).color = root.saveGameData[1 + i].color;
-        }
+              gameBtns.itemAt(i).currentRow = arr.shift();
+              gameBtns.itemAt(i).currentColumn = arr.shift();
+              gameBtns.itemAt(i).text = arr.shift();
+          }
 
     }
 

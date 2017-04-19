@@ -5,21 +5,22 @@ GameSaver::GameSaver()
 
 }
 
-void GameSaver::saveGame()
+void GameSaver::saveGame(QVariantList saveGameData)
 {
+    this->saveGameData = saveGameData;
     qDebug("Saving...");
-
-    //saveGameData = QVariant::convert(this->gameField->property("saveGameData"));
-
-    //fileMetods.rewriteFile("savegame",  &(this->gameField->property("saveGameData")), sizeof(this->gameField->property("saveGameData")));
+    fileMetods.rewriteFile("savegame", &saveGameData, sizeof(saveGameData)*44);
+    qDebug() << sizeof(QVariantList);
 }
 
-void GameSaver::loadGame()
+QVariantList GameSaver::loadGame()
 {
     qDebug("Loading...");
+
+    int datasize;
+    QVariantList* dataArray;
+    char* data = (char*)fileMetods.readFileBinary("savegame", &datasize);
+    if (datasize)dataArray = (QVariantList*)data;
+    return this->saveGameData;
 }
 
-void GameSaver::initGameField(QObject *gameField)
-{
-    this->gameField = gameField;
-}

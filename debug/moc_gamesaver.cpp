@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_GameSaver_t {
-    QByteArrayData data[4];
-    char stringdata0[29];
+    QByteArrayData data[5];
+    char stringdata0[42];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,10 +32,12 @@ static const qt_meta_stringdata_GameSaver_t qt_meta_stringdata_GameSaver = {
 QT_MOC_LITERAL(0, 0, 9), // "GameSaver"
 QT_MOC_LITERAL(1, 10, 8), // "saveGame"
 QT_MOC_LITERAL(2, 19, 0), // ""
-QT_MOC_LITERAL(3, 20, 8) // "loadGame"
+QT_MOC_LITERAL(3, 20, 12), // "saveGameData"
+QT_MOC_LITERAL(4, 33, 8) // "loadGame"
 
     },
-    "GameSaver\0saveGame\0\0loadGame"
+    "GameSaver\0saveGame\0\0saveGameData\0"
+    "loadGame"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,12 +55,12 @@ static const uint qt_meta_data_GameSaver[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x02 /* Public */,
-       3,    0,   25,    2, 0x02 /* Public */,
+       1,    1,   24,    2, 0x02 /* Public */,
+       4,    0,   27,    2, 0x02 /* Public */,
 
  // methods: parameters
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QVariantList,    3,
+    QMetaType::QVariantList,
 
        0        // eod
 };
@@ -69,12 +71,12 @@ void GameSaver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         GameSaver *_t = static_cast<GameSaver *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->saveGame(); break;
-        case 1: _t->loadGame(); break;
+        case 0: _t->saveGame((*reinterpret_cast< QVariantList(*)>(_a[1]))); break;
+        case 1: { QVariantList _r = _t->loadGame();
+            if (_a[0]) *reinterpret_cast< QVariantList*>(_a[0]) = _r; }  break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject GameSaver::staticMetaObject = {
