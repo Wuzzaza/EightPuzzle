@@ -16,7 +16,7 @@ Item {
         id: rect
         anchors.fill: parent
         color: "#9999ff"
-        smooth: true; radius: 5
+        smooth: true; radius: 10
         border.color: "#ffffff"
 
         Text {
